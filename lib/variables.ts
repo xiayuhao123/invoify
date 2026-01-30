@@ -151,7 +151,7 @@ export const FORM_DEFAULT_VALUES = {
         total: 0,
       },
     ],
-    currency: "USD",
+    currency: "GBP",
     language: "English",
     taxDetails: {
       amount: 0,
@@ -229,7 +229,7 @@ export const FORM_FILL_VALUES = {
         total: 400,
       },
     ],
-    currency: "USD",
+    currency: "GBP",
     language: "English",
     taxDetails: {
       amount: 15,

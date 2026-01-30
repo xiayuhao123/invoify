@@ -1,5 +1,8 @@
 "use client";
 
+// RHF
+import { useFormContext } from "react-hook-form";
+
 // Components
 import {
     CurrencySelector,
@@ -15,6 +18,15 @@ import { useTranslationContext } from "@/contexts/TranslationContext";
 
 const InvoiceDetails = () => {
     const { _t } = useTranslationContext();
+    const { setValue } = useFormContext();
+
+    const handleInvoiceDateChange = (date: Date | undefined) => {
+        if (date) {
+            const dueDate = new Date(date);
+            dueDate.setDate(dueDate.getDate() + 14);
+            setValue("details.dueDate", dueDate);
+        }
+    };
 
     return (
         <section className="flex flex-col flex-wrap gap-5">
@@ -41,6 +53,7 @@ const InvoiceDetails = () => {
                     <DatePickerFormField
                         name="details.invoiceDate"
                         label={_t("form.steps.invoiceDetails.issuedDate")}
+                        onChange={handleInvoiceDateChange}
                     />
 
                     <DatePickerFormField

@@ -36,9 +36,14 @@ import { NameType } from "@/types";
 type DatePickerFormFieldProps = {
     name: NameType;
     label?: string;
+    onChange?: (date: Date | undefined) => void;
 };
 
-const DatePickerFormField = ({ name, label }: DatePickerFormFieldProps) => {
+const DatePickerFormField = ({
+    name,
+    label,
+    onChange,
+}: DatePickerFormFieldProps) => {
     const { control } = useFormContext();
 
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -92,6 +97,9 @@ const DatePickerFormField = ({ name, label }: DatePickerFormFieldProps) => {
                                             onSelect={(e) => {
                                                 field.onChange(e);
                                                 setIsPopoverOpen(false);
+                                                if (onChange) {
+                                                    onChange(e);
+                                                }
                                             }}
                                             disabled={(date) =>
                                                 date < new Date("1900-01-01")
