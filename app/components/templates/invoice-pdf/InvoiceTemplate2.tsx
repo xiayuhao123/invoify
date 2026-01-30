@@ -236,7 +236,7 @@ const InvoiceTemplate2 = (data: InvoiceType) => {
                         <p className="font-semibold text-blue-600">
                             Additional notes:
                         </p>
-                        <p className="font-regular text-gray-800">
+                        <p className="font-regular text-gray-800 whitespace-pre-line">
                             {details.additionalNotes}
                         </p>
                     </div>
@@ -244,7 +244,7 @@ const InvoiceTemplate2 = (data: InvoiceType) => {
                         <p className="font-semibold text-blue-600">
                             Payment terms:
                         </p>
-                        <p className="font-regular text-gray-800">
+                        <p className="font-regular text-gray-800 whitespace-pre-line">
                             {details.paymentTerms}
                         </p>
                     </div>
