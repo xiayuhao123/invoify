@@ -52,6 +52,7 @@
             "paymentInfo": {
                 "heading": "Payment Information",
                 "bankName": "Bank Name",
+                "sortCode": "Sort Code",
                 "accountName": "Account Name",
                 "accountNumber": "Account Number"
             },

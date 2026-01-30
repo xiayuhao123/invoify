@@ -53,7 +53,8 @@
         "heading": "Ödeme Bilgileri",
         "bankName": "Banka Adı",
         "accountName": "Hesap Adı",
-        "accountNumber": "Hesap Numarası"
+        "accountNumber": "Hesap Numarası",
+        "sortCode": "Sort Code"
       },
       "summary": {
         "heading": "Özet",

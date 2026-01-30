@@ -52,6 +52,7 @@
             "paymentInfo": {
                 "heading": "支付信息",
                 "bankName": "银行名称",
+                "sortCode": "银行代码 (Sort Code)",
                 "accountName": "账户名",
                 "accountNumber": "账号"
             },

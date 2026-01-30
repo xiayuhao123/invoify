@@ -168,6 +168,7 @@ export const FORM_DEFAULT_VALUES = {
     },
     paymentInformation: {
       bankName: "",
+      sortCode: "",
       accountName: "",
       accountNumber: "",
     },
@@ -246,6 +247,7 @@ export const FORM_FILL_VALUES = {
     },
     paymentInformation: {
       bankName: "Bank Inc.",
+      sortCode: "11-22-33",
       accountName: "John Doe",
       accountNumber: "445566998877",
     },

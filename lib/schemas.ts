@@ -126,6 +126,7 @@ const ItemSchema = z.object({
 
 const PaymentInformationSchema = z.object({
     bankName: fieldValidators.stringMin1,
+    sortCode: fieldValidators.stringMin1,
     accountName: fieldValidators.stringMin1,
     accountNumber: fieldValidators.stringMin1,
 });

@@ -194,6 +194,7 @@ const InvoiceTemplate = (data: InvoiceType) => {
 						<span className='font-semibold text-md text-gray-800'>
 							Please send the payment to this address
 							<p className='text-sm'>Bank: {details.paymentInformation?.bankName}</p>
+							<p className='text-sm'>Sort code: {details.paymentInformation?.sortCode}</p>
 							<p className='text-sm'>Account name: {details.paymentInformation?.accountName}</p>
 							<p className='text-sm'>Account no: {details.paymentInformation?.accountNumber}</p>
 						</span>

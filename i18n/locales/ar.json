@@ -53,7 +53,8 @@
         "heading": "معلومات الدفع",
         "bankName": "اسم البنك",
         "accountName": "اسم الحساب",
-        "accountNumber": "رقم الحساب"
+        "accountNumber": "رقم الحساب",
+        "sortCode": "Sort Code"
       },
       "summary": {
         "heading": "الملخص",

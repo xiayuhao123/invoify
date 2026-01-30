@@ -53,7 +53,8 @@
         "heading": "Informasi Pembayaran",
         "bankName": "Nama Bank",
         "accountName": "Nama Rekening",
-        "accountNumber": "Nomor Rekening"
+        "accountNumber": "Nomor Rekening",
+        "sortCode": "Sort Code"
       },
       "summary": {
         "heading": "Ringkasan",
