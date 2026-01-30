@@ -11,55 +11,63 @@ import { DATE_OPTIONS } from "@/lib/variables";
 const fieldValidators = {
     name: z
         .string()
-        .min(2, { message: "Must be at least 2 characters" })
-        .max(50, { message: "Must be at most 50 characters" }),
+        .max(50, { message: "Must be at most 50 characters" })
+        .optional()
+        .or(z.literal('')),
     address: z
         .string()
-        .min(2, { message: "Must be at least 2 characters" })
-        .max(70, { message: "Must be between 2 and 70 characters" }),
+        .max(70, { message: "Must be between 2 and 70 characters" })
+        .optional()
+        .or(z.literal('')),
     zipCode: z
         .string()
-        .min(2, { message: "Must be between 2 and 20 characters" })
-        .max(20, { message: "Must be between 2 and 20 characters" }),
+        .max(20, { message: "Must be between 2 and 20 characters" })
+        .optional()
+        .or(z.literal('')),
     city: z
         .string()
-        .min(1, { message: "Must be between 1 and 50 characters" })
-        .max(50, { message: "Must be between 1 and 50 characters" }),
+        .max(50, { message: "Must be between 1 and 50 characters" })
+        .optional()
+        .or(z.literal('')),
     country: z
         .string()
-        .min(1, { message: "Must be between 1 and 70 characters" })
-        .max(70, { message: "Must be between 1 and 70 characters" }),
+        .max(70, { message: "Must be between 1 and 70 characters" })
+        .optional()
+        .or(z.literal('')),
     email: z
         .string()
         .email({ message: "Email must be a valid email" })
-        .min(5, { message: "Must be between 5 and 30 characters" })
-        .max(30, { message: "Must be between 5 and 30 characters" }),
+        .max(30, { message: "Must be between 5 and 30 characters" })
+        .or(z.literal('')),
     phone: z
         .string()
-        .min(1, { message: "Must be between 1 and 50 characters" })
         .max(50, {
             message: "Must be between 1 and 50 characters",
-        }),
+        })
+        .optional()
+        .or(z.literal('')),
 
     // Dates
     date: z
-        .date()
-        .transform((date) =>
-            new Date(date).toLocaleDateString("en-US", DATE_OPTIONS)
-        ),
+        .union([z.date(), z.string()])
+        .optional()
+        .transform((date) => {
+            const d = date ? new Date(date) : null;
+            return d && !isNaN(d.getTime())
+                ? d.toLocaleDateString("en-US", DATE_OPTIONS)
+                : "";
+        }),
 
     // Items
     quantity: z.coerce
-        .number()
-        .gt(0, { message: "Must be a number greater than 0" }),
+        .number(),
     unitPrice: z.coerce
         .number()
-        .gt(0, { message: "Must be a number greater than 0" })
         .lte(Number.MAX_SAFE_INTEGER, { message: `Must be ≤ ${Number.MAX_SAFE_INTEGER}` }),
 
     // Strings
     string: z.string(),
-    stringMin1: z.string().min(1, { message: "Must be at least 1 character" }),
+    stringMin1: z.string().optional().or(z.literal('')),
     stringToNumber: z.coerce.number(),
 
     // Charges

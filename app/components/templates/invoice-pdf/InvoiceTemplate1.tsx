@@ -61,13 +61,23 @@ const InvoiceTemplate = (data: InvoiceType) => {
 						<dl className='grid sm:grid-cols-6 gap-x-3'>
 							<dt className='col-span-3 font-semibold text-gray-800'>Invoice date:</dt>
 							<dd className='col-span-3 text-gray-500'>
-								{new Date(details.invoiceDate).toLocaleDateString("en-US", DATE_OPTIONS)}
+								{(() => {
+                                    const date = new Date(details.invoiceDate);
+                                    return !isNaN(date.getTime())
+                                        ? date.toLocaleDateString("en-US", DATE_OPTIONS)
+                                        : "";
+                                })()}
 							</dd>
 						</dl>
 						<dl className='grid sm:grid-cols-6 gap-x-3'>
 							<dt className='col-span-3 font-semibold text-gray-800'>Due date:</dt>
 							<dd className='col-span-3 text-gray-500'>
-								{new Date(details.dueDate).toLocaleDateString("en-US", DATE_OPTIONS)}
+								{(() => {
+                                    const date = new Date(details.dueDate);
+                                    return !isNaN(date.getTime())
+                                        ? date.toLocaleDateString("en-US", DATE_OPTIONS)
+                                        : "";
+                                })()}
 							</dd>
 						</dl>
 					</div>
